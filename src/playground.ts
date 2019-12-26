@@ -698,7 +698,7 @@ function addPlusMinusControl(x: number, layerIdx: number) {
 
   let suffix = state.networkShape[i] > 1 ? "s" : "";
   div.append("div").text(
-    state.networkShape[i] + " neuron" + suffix
+    state.networkShape[i] + " 个神经元"
   );
 }
 
@@ -734,7 +734,7 @@ function updateHoverCard(type: HoverType, nodeOrLink?: nn.Node | nn.Link,
   let value = (type === HoverType.WEIGHT) ?
     (nodeOrLink as nn.Link).weight :
     (nodeOrLink as nn.Node).bias;
-  let name = (type === HoverType.WEIGHT) ? "Weight" : "Bias";
+  let name = (type === HoverType.WEIGHT) ? "权重" : "偏置";
   hovercard.style({
     "left": `${coordinates[0] + 20}px`,
     "top": `${coordinates[1]}px`,
@@ -946,7 +946,7 @@ function reset(onStartup=false) {
   player.pause();
 
   let suffix = state.numHiddenLayers !== 1 ? "s" : "";
-  d3.select("#layers-label").text("Hidden layer" + suffix);
+  d3.select("#layers-label").text(" 层隐藏层");
   d3.select("#num-layers").text(state.numHiddenLayers);
 
   // Make a simple network.
